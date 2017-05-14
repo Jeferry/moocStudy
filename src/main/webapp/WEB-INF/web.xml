@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+
+	<welcome-file-list>
+		<welcome-file>
+		    /index.html
+		</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<load-on-startup>1</load-on-startup>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<load-on-startup>2</load-on-startup>
+		<servlet-name>TestHelloServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.TestHelloServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TestHelloServlet</servlet-name>
+		<url-pattern>/hello/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TestHelloWorldServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.TestHelloWorldServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TestHelloWorldServlet</servlet-name>
+		<url-pattern>/hello/world/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>JSPServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.JSPServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JSPServlet</servlet-name>
+		<url-pattern>*.jsp</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DefaultServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.DefaultServlet</servlet-class>
+	</servlet>
+
+	<!-- get/post method servlet -->
+	<servlet>
+		<servlet-name>GetPostServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.GetPostServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetPostServlet</servlet-name>
+		<url-pattern>/servlet/GetPostServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- servletconfig servlet -->
+	<servlet>
+		<init-param>
+			<param-name>data1</param-name>
+			<param-value>value1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>data2</param-name>
+			<param-value>value2</param-value>
+		</init-param>
+		<servlet-name>ServletConfigServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.ServletConfigServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletConfigServlet</servlet-name>
+		<url-pattern>/servlet/ServletConfig</url-pattern>
+	</servlet-mapping>
+
+	<!-- servletcontext servlet -->
+	<context-param>
+		<param-name>globalData1</param-name>
+		<param-value>123</param-value>
+	</context-param>
+	<context-param>
+		<param-name>globalData2</param-name>
+		<param-value>345</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>ServletContextServlet</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.ServletContextServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletContextServlet</servlet-name>
+		<url-pattern>/servlet/ServletContext</url-pattern>
+	</servlet-mapping>
+	<!-- Cookie & Session -->
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>com.netease.server.example.web.controller.UserServlet</servlet-class>
+		<init-param>
+			<param-name>tomcat</param-name>
+			<param-value>test for init-param</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>/user/specify</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+
+	<!-- error page config -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error.html</location>
+	</error-page>
+	<!-- mime java example -->
+	<mime-mapping>
+		<extension>java</extension>
+		<mime-type>text/plain</mime-type>
+	</mime-mapping>
+
+</web-app>
